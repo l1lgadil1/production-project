@@ -1,4 +1,4 @@
-
+node_modules/
 .idea
 
 
@@ -6,6 +6,7 @@
 
 # dependencies
 /node_modules
+
 /.pnp
 .pnp.js
 
