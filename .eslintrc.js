@@ -12,13 +12,17 @@ module.exports = {
         project: './tsconfig.json'
     },
     plugins: [
-        'react'
+        'react',
+        '@typescript-eslint',
+        'i18next'
+
     ],
     rules: {
         'react/jsx-indent': [2, 4],
         'react/jsx-indent-props': [2, 4],
         // indent: ['error', 4, { SwitchCase: 1, ignoredNodes: ['PropertyDefinition'] }],
         indent: 'off',
+        'i18next/no-literal-string': ['error', { markupOnly: true }],
         '@typescript-eslint/explicit-function-return-type': 'off',
         '@typescript-eslint/strict-boolean-expressions': 'off',
         'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.ts', '.tsx'] }],
