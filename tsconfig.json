@@ -31,8 +31,7 @@
     // import * as React from 'react';
     // можно писать такой
     // import React from 'react';
-    "allowSyntheticDefaultImports": true,
-    "strictNullChecks": false
+    "allowSyntheticDefaultImports": true
   },
   "ts-node": {
     "compilerOptions": {
