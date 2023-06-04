@@ -4,7 +4,7 @@ module.exports = {
     es2021: true,
     jest: true
   },
-  extends: ['standard-with-typescript', 'plugin:react/recommended', 'plugin:storybook/recommended'],
+  extends: ['standard-with-typescript', 'plugin:react/recommended', 'plugin:storybook/recommended', 'plugin:storybook/recommended'],
   parserOptions: {
     ecmaVersion: 'latest',
     project: './tsconfig.json'
