@@ -1,8 +1,7 @@
-import {DeepPartial} from "@reduxjs/toolkit";
 import {StateSchema} from "app/providers/StoreProvider";
 import {getLoginState} from "features/AuthByUsername/model/selectors/getLoginState/getLoginState";
 
-describe('getLoginstate', () => {
+describe('getLoginState', () => {
     test('should return object', () => {
       const state:DeepPartial<StateSchema> = {
           loginForm:{
