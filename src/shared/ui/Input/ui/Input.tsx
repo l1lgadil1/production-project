@@ -60,8 +60,8 @@ export const Input = memo((props: InputProps) => {
             <div></div>
             <div className={cls.caretWrapper}>
                 <input
-                    ref={inputRef}
                     onFocus={onFocus}
+                    ref={inputRef}
                     onBlur={onBlur}
                     type={type}
                     value={value}
