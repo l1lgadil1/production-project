@@ -1,19 +1,19 @@
-import {classNames, Mods} from "shared/lib/classNames/classNames";
-import cls from './Select.module.scss'
-import {ChangeEvent, memo, useMemo} from "react";
+import { classNames, Mods } from 'shared/lib/classNames/classNames';
+import { ChangeEvent, memo, useMemo } from 'react';
+import cls from './Select.module.scss';
 
-interface SelectOption {
-    value: string
-    content: string
+export interface SelectOption {
+    value: string;
+    content: string;
 }
 
 interface SelectProps {
     className?: string;
     label?: string;
-    options?: SelectOption[]
+    options?: SelectOption[];
     value?: string;
-    onChange?: (val: string) => void;
-    readonly?: boolean
+    onChange?: (value: string) => void;
+    readonly?: boolean;
 }
 
 export const Select = memo((props: SelectProps) => {
@@ -21,40 +21,44 @@ export const Select = memo((props: SelectProps) => {
         className,
         label,
         options,
-        value,
         onChange,
-        readonly
+        value,
+        readonly,
     } = props;
 
-    const optionList = useMemo(() => options?.map((opt) => (
+    const onChangeHandler = (e: ChangeEvent<HTMLSelectElement>) => {
+        if (onChange) {
+            onChange(e.target.value);
+        }
+    };
+
+    const optionsList = useMemo(() => options?.map((opt) => (
         <option
-            key={opt.value}
             className={cls.option}
             value={opt.value}
+            key={opt.value}
         >
             {opt.content}
         </option>
-    )), [])
+    )), [options]);
 
-    const onChangeHandler = (e: ChangeEvent<HTMLSelectElement>) => {
-        onChange?.(e.target.value);
-    }
+    const mods: Mods = {};
 
-    const mods: Mods = {}
     return (
         <div className={classNames(cls.Wrapper, mods, [className])}>
-            {label
-                && <span className={cls.label}>{label + '>'}</span>
-            }
+            {label && (
+                <span className={cls.label}>
+                    {`${label}>`}
+                </span>
+            )}
             <select
                 disabled={readonly}
+                className={cls.select}
                 value={value}
                 onChange={onChangeHandler}
-                className={cls.select}
-                name="" id="">
-                {optionList}
+            >
+                {optionsList}
             </select>
         </div>
     );
 });
-
