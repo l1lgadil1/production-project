@@ -12,7 +12,11 @@ interface ArticleRecommendationListProps {
 export const ArticleRecommendationList = memo((props: ArticleRecommendationListProps) => {
     const {className} = props;
     const {t} = useTranslation();
-    const {data: articles, isSuccess} = useArticleRecommendations(3);
+    const {data: articles, isSuccess, isLoading, error} = useArticleRecommendations(3);
+
+    if (isLoading || error || !articles) {
+        return null
+    }
 
     return (
         <div className={classNames('', {}, [className])}>
@@ -20,7 +24,7 @@ export const ArticleRecommendationList = memo((props: ArticleRecommendationListP
                 size={TextSize.L}
                 title={t('Рекомендуем')}
             />
-            {isSuccess && <ArticleList articles={articles} target="_blank" />}
+            {isSuccess && <ArticleList articles={articles} target="_blank"/>}
         </div>
     );
 });
