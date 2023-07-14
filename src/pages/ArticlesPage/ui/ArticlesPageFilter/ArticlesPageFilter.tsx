@@ -13,10 +13,10 @@ import {useTranslation} from "react-i18next";
 import {Input} from "shared/ui/Input";
 import {Card} from "shared/ui/Card/Card";
 import {SortOrder} from "shared/types";
-import {ArticleSortField, ArticleType} from "entities/Article/model/types/article";
 import {fetchArticlesList} from "pages/ArticlesPage/model/services/fetchArticlesList/fetchArticlesList";
 import {useDebounce} from "shared/lib/hooks/useDebounce/useDebounce";
 import {ArticleTypeTabs} from "entities/Article/ui/ArticleTypeTabs/ArticleTypeTabs";
+import {ArticleSortField, ArticleType} from "entities/Article/model/const/consts";
 
 interface ArticlesPageFilterProps {
     className?: string;
