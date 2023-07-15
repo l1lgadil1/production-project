@@ -4,22 +4,39 @@ import {Button, ButtonTheme} from "shared/ui/Button/Button";
 import {Icon} from "shared/ui/Icon/Icon";
 import NotificationIcon from "shared/assets/icons/notification-20-20.svg";
 import {NotificationList} from "entities/Notification";
-import React from "react";
+import React, {useState} from "react";
+import {Drawer} from "shared/ui/Drawer/Drawer";
+import {BrowserView, MobileView} from 'react-device-detect';
 
 interface NotificationButtonProps {
     className?: string;
 }
 
 export const NotificationButton = ({className}: NotificationButtonProps) => {
+    const [isDrawerOpen, setIsDrawerOpen] = useState<boolean>(false);
+    const onDrawerOpen = () => setIsDrawerOpen(true);
+    const onDrawerClose = () => setIsDrawerOpen(false);
+
+    const trigger = <Button onClick={onDrawerOpen} theme={ButtonTheme.CLEAR}>
+        <Icon inverted Svg={NotificationIcon}/>
+    </Button>;
     return (
-            <Popover
-                // direction={'bottom left'}
-                trigger={<Button theme={ButtonTheme.CLEAR}>
-                    <Icon inverted Svg={NotificationIcon}/>
-                </Button>}
-            >
-                <NotificationList className={cls.notifications} />
-            </Popover>
+        <div>
+            <BrowserView>
+                <Popover
+                    // direction={'bottom left'}
+                    trigger={trigger}
+                >
+                    <NotificationList className={cls.notifications}/>
+                </Popover>
+            </BrowserView>
+            <MobileView>
+                {trigger}
+                <Drawer isOpen={isDrawerOpen} onClose={onDrawerClose}>
+                    <NotificationList/>
+                </Drawer>
+            </MobileView>
+        </div>
     );
 };
 
