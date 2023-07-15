@@ -4,6 +4,7 @@ import {Button} from "shared/ui/Button/Button";
 import {memo, ReactNode, useState} from "react";
 import {DropdownDirection} from "shared/types/ui";
 import {AppLink} from "shared/ui/AppLink/AppLink";
+import {mapDirectionClass} from "shared/ui/Popups/styles/consts";
 
 export interface DropdownItem {
     disabled?: boolean;
@@ -19,12 +20,6 @@ interface DropdownProps {
     direction?: DropdownDirection;
 }
 
-const mapDirectionClass: Record<DropdownDirection, string> = {
-    'bottom left': cls.bottomLeft,
-    'bottom right': cls.bottomRight,
-    'top right': cls.topRight,
-    'top left': cls.topLeft
-}
 
 export const Dropdown = memo((props: DropdownProps) => {
     const {className, items, trigger, direction = 'bottom right'} = props;
