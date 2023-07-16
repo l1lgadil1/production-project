@@ -9,19 +9,20 @@ interface NotificationListProps {
     className?: string;
 }
 
-export const  NotificationList = ({className}: NotificationListProps) => {
-    const {data, isLoading} = useNotifications(null,{
-        pollingInterval:5000
+export const NotificationList = ({className}: NotificationListProps) => {
+    const {data, isLoading} = useNotifications(null, {
+        pollingInterval: 5000
     });
 
+    console.log('isLoading:', isLoading)
     if (isLoading) {
         return <VStack
             gap={'8'}
             className={classNames(cls.NotificationList, {}, [className])}
         >
-           <Skeleton width={'100%'} border={'8px'} height={'80px'} />
-           <Skeleton width={'100%'} border={'8px'} height={'80px'} />
-           <Skeleton width={'100%'} border={'8px'} height={'80px'} />
+            <Skeleton width={'100%'} border={'8px'} height={'80px'}/>
+            <Skeleton width={'100%'} border={'8px'} height={'80px'}/>
+            <Skeleton width={'100%'} border={'8px'} height={'80px'}/>
         </VStack>
     }
 
