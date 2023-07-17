@@ -1,20 +1,20 @@
 import cls from './ArticleDetailsComments.module.scss'
-import {Text, TextSize} from "shared/ui/Text/Text";
-import {AddCommentForm} from "features/addCommentForm";
-import {CommentList} from "entities/Comment";
+import {Text, TextSize} from "@/shared/ui/Text/Text";
+import {AddCommentForm} from "@/features/addCommentForm";
+import {CommentList} from "@/entities/Comment";
 import {useTranslation} from "react-i18next";
 import {useSelector} from "react-redux";
-import {getArticleComments} from "pages/ArticleDetailsPage/model/slices/articleDetailsCommentsSlice";
-import {getArticleRecommendations} from "pages/ArticleDetailsPage/model/slices/articleDetailsPageRecommendationsSlice";
-import {getArticleCommentsIsLoading} from "pages/ArticleDetailsPage/model/selectors/comments";
-import {getArticleRecommendationsIsLoading} from "pages/ArticleDetailsPage/model/selectors/recommendations";
+import {getArticleComments} from "@/pages/ArticleDetailsPage/model/slices/articleDetailsCommentsSlice";
+import {getArticleRecommendations} from "@/pages/ArticleDetailsPage/model/slices/articleDetailsPageRecommendationsSlice";
+import {getArticleCommentsIsLoading} from "@/pages/ArticleDetailsPage/model/selectors/comments";
+import {getArticleRecommendationsIsLoading} from "@/pages/ArticleDetailsPage/model/selectors/recommendations";
 import {useCallback} from "react";
-import {addCommentForArticle} from "pages/ArticleDetailsPage/model/services/addCommentForArticle/addCommentForArticle";
-import {useAppDispatch} from "shared/lib/hooks/useAppDispatch/useAppDispatch";
-import {useInitialEffect} from "shared/lib/hooks/useInitialEffect/useInitialEffect";
+import {addCommentForArticle} from "@/pages/ArticleDetailsPage/model/services/addCommentForArticle/addCommentForArticle";
+import {useAppDispatch} from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
+import {useInitialEffect} from "@/shared/lib/hooks/useInitialEffect/useInitialEffect";
 import {
     fetchCommentsByArticleId
-} from "pages/ArticleDetailsPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId";
+} from "@/pages/ArticleDetailsPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId";
 
 interface ArticleDetailsCommentsProps {
     className?: string;
