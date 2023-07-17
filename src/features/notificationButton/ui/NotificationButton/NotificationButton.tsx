@@ -33,11 +33,9 @@ export const NotificationButton = ({className}: NotificationButtonProps) => {
             </BrowserView>
             <MobileView>
                 {trigger}
-                <AnimationProvider>
                     <Drawer isOpen={isDrawerOpen} onClose={onDrawerClose}>
                         <NotificationList/>
                     </Drawer>
-                </AnimationProvider>
             </MobileView>
         </div>
     );

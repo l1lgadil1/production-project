@@ -3,7 +3,7 @@ import {Portal} from "@/shared/ui/Portal/Portal";
 import {classNames} from "@/shared/lib/classNames/classNames";
 import {memo, ReactNode, useCallback, useEffect} from "react";
 import {Overlay} from "@/shared/ui/Overlay/Overlay";
-import {useAnimationLibs} from "@/shared/lib/components/AnimationProvider";
+import {AnimationProvider, useAnimationLibs} from "@/shared/lib/components/AnimationProvider";
 
 interface DrawerProps {
     className?: string;
@@ -14,7 +14,7 @@ interface DrawerProps {
 
 const height = window.innerHeight - 100;
 export const DrawerContent = ({className, children, isOpen, onClose}: DrawerProps) => {
-    const {Spring,Gesture} = useAnimationLibs();
+    const {Spring, Gesture} = useAnimationLibs();
     const [{y}, api] = Spring.useSpring(() => ({y: height}))
 
     const openDrawer = useCallback(() => {
@@ -82,12 +82,18 @@ export const DrawerContent = ({className, children, isOpen, onClose}: DrawerProp
     );
 };
 
-export const Drawer = memo((props:DrawerProps)=>{
+const DrawerAsync = memo((props: DrawerProps) => {
     const {isLoaded} = useAnimationLibs()
 
-    if(!isLoaded){
+    if (!isLoaded) {
         return null
     }
 
     return <DrawerContent {...props} />
+})
+
+export const Drawer = ((props: DrawerProps) => {
+    return <AnimationProvider>
+        <DrawerAsync {...props} />
+    </AnimationProvider>
 })
