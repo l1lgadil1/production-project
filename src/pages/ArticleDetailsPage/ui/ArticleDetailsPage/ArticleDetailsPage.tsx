@@ -1,16 +1,16 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
-import { ArticleDetails, ArticleList } from 'entities/Article';
+import { ArticleDetails, ArticleList } from '@/entities/Article';
 import {  useParams } from 'react-router-dom';
-import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useDispatch, useSelector } from 'react-redux';
-import { Page } from 'widgets/Page/Page';
-import { VStack } from 'shared/ui/Stack';
+import { Page } from '@/widgets/Page/Page';
+import { VStack } from '@/shared/ui/Stack';
 import cls from './ArticleDetailsPage.module.scss';
 import { articleDetailsPageReducer } from '../../model/slices';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
-import {ArticleRecommendationList} from "features/articleRecommendationList";
+import {ArticleRecommendationList} from "@/features/articleRecommendationList";
 import {ArticleDetailsComments} from "../ArticleDetailsComments/ArticleDetailsComments";
 
 interface ArticleDetailsPageProps {

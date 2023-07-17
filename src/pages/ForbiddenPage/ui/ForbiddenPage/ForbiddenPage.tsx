@@ -1,5 +1,5 @@
 import cls from './ForbiddenPage.module.scss'
-import {Page} from "widgets/Page/Page";
+import {Page} from "@/widgets/Page/Page";
 import {useTranslation} from "react-i18next";
 
 interface ForbiddenPageProps {

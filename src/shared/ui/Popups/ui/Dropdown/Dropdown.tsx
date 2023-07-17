@@ -1,10 +1,10 @@
 import cls from './Dropdown.module.scss'
-import {classNames} from "shared/lib/classNames/classNames";
-import {Button} from "shared/ui/Button/Button";
+import {classNames} from "@/shared/lib/classNames/classNames";
+import {Button} from "@/shared/ui/Button/Button";
 import {memo, ReactNode, useState} from "react";
-import {DropdownDirection} from "shared/types/ui";
-import {AppLink} from "shared/ui/AppLink/AppLink";
-import {mapDirectionClass} from "shared/ui/Popups/styles/consts";
+import {DropdownDirection} from "@/shared/types/ui";
+import {AppLink} from "@/shared/ui/AppLink/AppLink";
+import {mapDirectionClass} from "@/shared/ui/Popups/styles/consts";
 
 export interface DropdownItem {
     disabled?: boolean;

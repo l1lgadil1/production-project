@@ -1,6 +1,6 @@
 import cls from './AdminPanelPage.module.scss'
 import {useTranslation} from "react-i18next";
-import {Page} from "widgets/Page/Page";
+import {Page} from "@/widgets/Page/Page";
 
 interface AdminPanelPageProps {
     className?: string;

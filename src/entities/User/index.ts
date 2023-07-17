@@ -16,5 +16,5 @@ export type {
 } from './model/types/user';
 
 export { isUserAdmin,isUserManager,getUserRoles} from './model/selectors/roleSelectors'
-export {UserRole} from "entities/User/model/consts/consts";
+export {UserRole} from "@/entities/User/model/consts/consts";
 

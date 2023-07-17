@@ -1,8 +1,8 @@
-import {classNames} from "shared/lib/classNames/classNames";
-import {Select} from "shared/ui/Select/Select";
+import {classNames} from "@/shared/lib/classNames/classNames";
+import {Select} from "@/shared/ui/Select/Select";
 import {useTranslation} from "react-i18next";
 import {memo, useCallback} from "react";
-import {Country} from "entities/Country";
+import {Country} from "@/entities/Country";
 
 interface CountrySelect {
     className?: string;
