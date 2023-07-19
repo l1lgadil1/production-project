@@ -16,7 +16,7 @@ const stars = [1, 2, 3, 4, 5];
 export const StarRating = (props: StarRatingProps) => {
     const {className, size = 30, selectedStars = 0, onSelect} = props;
 
-    const [currentStarsCount, setCurrentStarsCount] = useState(0);
+    const [currentStarsCount, setCurrentStarsCount] = useState(selectedStars);
     const [isSelected, setIsSelected] = useState(Boolean(selectedStars));
     console.log(currentStarsCount)
     const clsMode: Record<string, string | boolean> = {}
