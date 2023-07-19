@@ -25,6 +25,7 @@ import {DynamicModuleLoader, ReducersList} from "@/shared/lib/components/Dynamic
 import {
     EditableProfileCardHeader
 } from "@/features/editableProfileCard/ui/EditableProfileCardHeader/EditableProfileCardHeader";
+import {ProfileRating} from "@/features/profileRating/ui/ProfileRating/ProfileRating";
 
 interface EditableProfileCardProps {
     className?: string;
@@ -53,7 +54,6 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
         [ValidateProfileError.INCORRECT_USER_DATA]: t('Имя и фамилия обязательны'),
         [ValidateProfileError.INCORRECT_AGE]: t('Некорректный возраст'),
     };
-
 
     const onChangeFirstname = useCallback((value?: string) => {
         dispatch(profileActions.updateProfile({ first: value || '' }));
@@ -92,6 +92,7 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
             dispatch(fetchProfileData(id));
         }
     });
+
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <div className={classNames(cls.EditableProfileCard, {}, [className])}>

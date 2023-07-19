@@ -807,6 +807,20 @@
       "feedback": "Good статья",
       "userId": "3",
       "profileId": "3"
+    },
+    {
+      "userId": "1",
+      "profileId": "2",
+      "rate": 4,
+      "feedback": "asasdasdasd",
+      "id": "SbEhGNi"
+    },
+    {
+      "userId": "2",
+      "profileId": "1",
+      "rate": 3,
+      "feedback": "112",
+      "id": "G0mPEnS"
     }
   ]
 }
