@@ -1,6 +1,6 @@
 import cls from './AvatarDropdown.module.scss'
 import {Avatar} from "@/shared/ui/Avatar/Avatar";
-import {RoutePath} from "@/shared/config/routeConfig/routeConfig";
+import {getRouteAdminPanel, getRouteProfile, RoutePath} from "@/shared/config/routeConfig/routeConfig";
 import {Dropdown} from "@/shared/ui/Popups";
 import React, {useCallback} from "react";
 import {useSelector} from "react-redux";
@@ -34,11 +34,11 @@ export const AvatarDropdown = ({className}: AvatarDropdownProps) => {
                   items={[
                       ...(isAdminPanelAvailable ? [{
                           content: t('Админ панель'),
-                          href: RoutePath.admin_panel
+                          href: getRouteAdminPanel()
                       }] : []),
                       {
                           content: t('Мой профиль'),
-                          href: RoutePath.profile + authData?.id
+                          href: getRouteProfile(authData.id)
                       },
                       {
                           content: t('Выйти'),

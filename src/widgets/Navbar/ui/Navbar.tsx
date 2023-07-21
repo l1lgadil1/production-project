@@ -7,7 +7,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {getUserAuthData, isUserAdmin, isUserManager, userActions} from '@/entities/User';
 import {Text, TextTheme} from '@/shared/ui/Text/Text';
 import {AppLink, AppLinkTheme} from '@/shared/ui/AppLink/AppLink';
-import {RoutePath} from '@/shared/config/routeConfig/routeConfig';
+import {getRouteArticleCreate, RoutePath} from '@/shared/config/routeConfig/routeConfig';
 import cls from './Navbar.module.scss';
 import {Dropdown} from "@/shared/ui/Popups/ui/Dropdown/Dropdown";
 import {Avatar} from "@/shared/ui/Avatar/Avatar";
@@ -45,7 +45,7 @@ export const Navbar = memo(({className}: NavbarProps) => {
                     theme={TextTheme.INVERTED}
                 />
                 <AppLink
-                    to={RoutePath.article_create}
+                    to={getRouteArticleCreate()}
                     theme={AppLinkTheme.SECONDARY}
                     className={cls.createBtn}
                 >
