@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Input } from '@/shared/ui/Input/Input';
 import {StarRating} from "@/shared/ui/StarRating/StarRating";
 import {RatingCard} from "@/entities/Rating/ui/RatingCard/RatingCard";
+import {Page} from "@/widgets/Page/Page";
 
 const MainPage = () => {
     const { t } = useTranslation();
@@ -13,11 +14,11 @@ const MainPage = () => {
     };
 
     return (
-        <div>
+        <Page data-testid="MainPage">
             {t('Главная страница')}
             <RatingCard title={'Ваш фидбек'} feedbackTitle={'Оставьте отзыв'} hasFeedback={true} />
             {/*<StarRating size={50} />*/}
-        </div>
+        </Page>
     );
 };
 
