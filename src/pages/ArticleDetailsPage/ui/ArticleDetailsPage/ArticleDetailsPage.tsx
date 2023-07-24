@@ -13,6 +13,8 @@ import {ArticleDetailsPageHeader} from '../ArticleDetailsPageHeader/ArticleDetai
 import {ArticleRecommendationList} from "@/features/articleRecommendationList";
 import {ArticleDetailsComments} from "../ArticleDetailsComments/ArticleDetailsComments";
 import {ArticleRating} from "@/features/articleRating";
+import {getFeatureFlag} from "@/shared/lib/features";
+import {Counter} from "@/entities/Counter";
 
 interface ArticleDetailsPageProps {
     className?: string;
@@ -27,7 +29,8 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     const {t} = useTranslation('article-details');
     const {id} = useParams<{ id: string }>();
     const dispatch = useDispatch();
-
+    const isArticleRatingEnabled = getFeatureFlag('isArticleRatingEnabled');
+    const isCounterEnabled = getFeatureFlag('isCounterEnabled');
 
     if (!id) {
         return (
@@ -43,7 +46,8 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
                 <VStack gap="16" max>
                     <ArticleDetailsPageHeader/>
                     <ArticleDetails id={id}/>
-                    <ArticleRating articleId={id}/>
+                    {isArticleRatingEnabled && <ArticleRating articleId={id}/>}
+                    {isCounterEnabled && <Counter/>}
                     <ArticleRecommendationList/>
                     <ArticleDetailsComments id={id}/>
                 </VStack>
